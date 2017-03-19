@@ -447,7 +447,7 @@ REDIRECT_1_2(long, pathconf, int)
 REDIRECT_1_1(DIR *, opendir)
 REDIRECT_1_2(int, mkdir, mode_t)
 REDIRECT_1_1(int, rmdir)
-REDIRECT_1_3(int, chown, uid_t, gid_t)
+//REDIRECT_1_3(int, chown, uid_t, gid_t)
 REDIRECT_1_3(int, lchown, uid_t, gid_t)
 REDIRECT_1_2(int, chmod, mode_t)
 REDIRECT_1_2(int, lchmod, mode_t)
@@ -738,4 +738,22 @@ int
 __execve (const char *path, char *const argv[], char *const envp[])
 {
     return execve_wrapper ("__execve", path, argv, envp);
+}
+
+int
+setgid (gid_t gid)
+{
+    return 0;
+}
+
+int
+setgroups(size_t size, const gid_t *list)
+{
+    return 0;
+}
+
+int
+chown(const char *pathname, uid_t owner, gid_t group)
+{
+    return 0;
 }
